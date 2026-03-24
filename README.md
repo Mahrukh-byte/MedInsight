@@ -1,73 +1,170 @@
-Med Insight | Hospital Orchestration & Command Centre
-Med Insight is a high-fidelity, data-driven Command Centre engineered for modern healthcare environments. It serves as a centralized "Operating System" for hospital administrators, aggregating real-time operational data, predictive analytics, and patient flow logistics into a unified, high-performance interface.
 
-🚀 The Mission
-Modern hospitals often suffer from "Access Block"—where patients are stuck in the ER because specialized wards are full. Med Insight solves this by providing Live Network Visibility. It allows administrators to move from reactive crisis management to proactive orchestration.
+# **Med Insight | Hospital Orchestration & Command Centre**
 
-🛠️ Module Architecture
-1. Med Insight (Advanced Analytics)
-Purpose: Clinical outcomes, patient demographics, and stay analytics.
+**Med Insight** is a data-driven hospital command centre designed to give administrators real-time control over operations, patient flow, and resource allocation.
 
-Key Feature: Integrates complex Excel datasets to visualize Length of Stay (LOS) trends, demographic distributions, and financial payment modes (Govt vs. Private vs. Self-Pay).
+It acts as a centralized **operating layer for healthcare systems**, combining analytics, forecasting, and live capacity tracking into a single interface.
 
-2. MedEvac Command
-Purpose: Live network rerouting and ambulance dispatch simulation.
+---
 
-Key Feature: Tracks bed capacity across multiple hospitals. It features a dispatch engine with a JSON Persistence Layer, ensuring dispatched transfers are saved even if the system reboots.
+## **🚀 Mission**
 
-3. Ward Capacity & Flow
-Purpose: Real-time bed management across specialized departments (ICU, Cardiology, etc.).
+Hospitals frequently face **Access Block** — where patients remain in emergency care due to unavailable beds in specialized wards.
 
-Key Feature: Tracks the "Net Bed Change" by balancing scheduled admissions against pending discharges to prevent capacity surges.
+**Med Insight addresses this by enabling live network visibility and proactive decision-making.**
 
-4. Predictive Intelligence
-Purpose: AI-driven demand forecasting.
+Instead of reacting to bottlenecks, administrators can:
 
-Key Feature: Analyzes historical admission patterns to forecast upcoming weekly demand, allowing for optimized staff scheduling.
+* Anticipate capacity constraints
+* Optimize patient movement
+* Coordinate across hospital networks
 
-5. Pharmacy & Inventory
-Purpose: Critical medical asset tracking.
+---
 
-Key Feature: Live stock monitoring with automated expiry alerts and "Days to Expiry" calculations.
+## **🧩 Core Modules**
 
-💻 Technical Stack & Engineering
-The Engine
-Python 3.10+: Core logic and data processing.
+### **1. Med Insight (Advanced Analytics)**
 
-Streamlit: High-performance web framework for the frontend.
+**Focus:** Clinical insights and operational metrics
 
-Pandas & Openpyxl: Advanced data manipulation and multi-sheet Excel ingestion.
+* Analyze **Length of Stay (LOS)** trends
+* Explore **patient demographics**
+* Compare **payment modes** (Government, Private, Self-pay)
+* Supports multi-sheet Excel ingestion
 
-The Visuals
-Plotly Graph Objects: Engineered dual-axis charts and responsive, theme-adaptive visualizations.
+---
 
-Custom CSS Layer: A handcrafted Glassmorphism UI using CSS injection to provide a premium SaaS experience.
+### **2. MedEvac Command**
 
-The Architecture
-Unified Design System: Centralized styling via styles.py and components.py for a consistent global look across all 9 modules.
+**Focus:** Inter-hospital coordination & dispatch
 
-State Persistence: Custom serialization logic using the JSON library to maintain a "Live Database" state across browser refreshes.
+* Real-time **bed availability tracking across hospitals**
+* Simulated **ambulance dispatch system**
+* **JSON-based persistence layer** ensures data survives reloads
 
-Safe-Mapping Data Engine: Built a resilient data-loading function that uses fuzzy matching to identify columns, preventing crashes if data formats vary.
+---
 
-📂 Project Structure
-Plaintext
-📁 med_insight_suite/
-├── 📄 app.py                # Master Landing Page & Global KPIs
-├── 📄 components.py         # Shared UI components (Sidebar, KPI Cards)
-├── 📄 styles.py             # Global CSS & Theme definitions
-├── 📄 data_engine.py        # Central Data Ingestion (Excel/CSV)
-├── 📁 data/                 # Raw Datasets & Persistence Files (.json)
-└── 📁 pages/                # Operational Modules (Med Insight, MedEvac, etc.)
-🛠️ Installation & Setup
-Clone the project folder.
+### **3. Ward Capacity & Flow**
 
-Install dependencies:
+**Focus:** Bed management and throughput
 
-Bash
+* Tracks availability across departments (ICU, Cardiology, etc.)
+* Computes **Net Bed Change = Admissions – Discharges**
+* Helps prevent sudden capacity overloads
+
+---
+
+### **4. Predictive Intelligence**
+
+**Focus:** Demand forecasting
+
+* Uses historical admission data
+* Predicts **weekly patient inflow trends**
+* Enables smarter **staff and resource planning**
+
+---
+
+### **5. Pharmacy & Inventory**
+
+**Focus:** Medical supply monitoring
+
+* Tracks stock levels in real time
+* Calculates **Days to Expiry**
+* Generates alerts for expiring inventory
+
+---
+
+## **⚙️ Technical Stack**
+
+### **Core Engine**
+
+* **Python 3.10+** — application logic
+* **Streamlit** — interactive frontend
+* **Pandas + Openpyxl** — data processing & Excel ingestion
+
+### **Visualization**
+
+* **Plotly Graph Objects** — interactive, responsive charts
+* Dual-axis and theme-adaptive visualizations
+
+### **UI System**
+
+* Custom **Glassmorphism design** via CSS injection
+* Centralized styling through:
+
+  * `styles.py`
+  * `components.py`
+
+---
+
+## **🏗️ Architecture Highlights**
+
+* **Unified Design System**
+  Consistent UI across all modules
+
+* **State Persistence**
+  JSON-based storage simulates a lightweight live database
+
+* **Resilient Data Engine**
+  Fuzzy column matching prevents crashes from inconsistent datasets
+
+---
+
+## **📂 Project Structure**
+
+```
+med_insight_suite/
+├── app.py                # Entry point & global KPIs dashboard
+├── components.py         # Shared UI components
+├── styles.py             # Global styles & themes
+├── data_engine.py        # Data ingestion and processing
+├── data/                 # Raw datasets & JSON persistence
+└── pages/                # Feature modules
+```
+
+---
+
+## **🛠️ Installation & Setup**
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd med_insight_suite
+```
+
+### 2. Install dependencies
+
+```bash
 pip install streamlit pandas plotly openpyxl
-Launch the Suite:
+```
 
-Bash
+### 3. Run the application
+
+```bash
 streamlit run app.py
-Developed for the Infosys Springboard Internship 2026 Engineering a more resilient, data-first healthcare future.
+```
+
+---
+
+## **🎯 Key Differentiators**
+
+* Moves hospitals from **reactive → predictive operations**
+* Combines **analytics + orchestration + simulation**
+* Designed for **real-world data inconsistencies**
+* Lightweight, extensible, and deployable
+
+---
+
+## **📌 Context**
+
+Developed as part of the **Infosys Springboard Internship 2026**, focused on building resilient, data-first healthcare systems.
+
+---
+
+## **🔮 Future Scope **
+
+* Integration with **live hospital APIs / HL7 / FHIR standards**
+* Machine learning models for **patient risk scoring**
+* Real-time **alerting and escalation system**
+* Multi-city hospital network simulation
